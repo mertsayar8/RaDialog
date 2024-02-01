@@ -2,10 +2,12 @@ import argparse
 import dataclasses
 import json
 import os
+import itertools
 from enum import auto, Enum
 from pathlib import Path
 from typing import List, Any
 import random
+import datetime
 
 import numpy as np
 import pandas as pd
@@ -124,7 +126,7 @@ class MIMIC_Text_Dataset(Dataset):
 
         # load csv file
         self.split = pd.read_csv(
-            f'{PATH_TO_MIMIC_CXR}/mimic-cxr-jpg/2.0.0/mimic-cxr-2.0.0-split.csv')
+            'home/data/DIVA/mimic/mimic-cxr-jpg/2.0.0/mimic-cxr-2.0.0-split.csv')
         self.reports = pd.read_csv('mimic-cxr/reports_processed/mimic_cxr_sectioned.csv')
         # drop reports where findings are nan
         self.reports = self.reports.dropna(subset=['findings'])
@@ -229,6 +231,142 @@ class MIMIC_Text_Dataset(Dataset):
     def __len__(self):
         return len(self.annotation)
 
+#discuss lab result processing tomorrow.
+class Patient():
+    def __init__(self, pat_path: Path, tests: List[str]):
+        with open(pat_path / 'base_info.json', 'r') as f:
+            pat_data = json.load(f)
+        self.tests = tests
+        self.mortal = pat_data["mort_label"] == "True"
+        self.disch = pat_data["disch_label"] == "True"
+        self.dicom = Path(pat_data["img_paths"]).stem
+        self.imchart_time = pd.to_datetime(pat_data["img_charttime"], format = '%Y-%m-%d %H:%M:%S')
+        self.labs = pd.read_csv(pat_path / 'labs.csv')
+        self.labs["charttime"] = pd.to_datetime(self.labs["charttime"], infer_datetime_format=True)
+        self.labs["charttime"] = abs(self.labs["charttime"] - self.imchart_time)
+        self.labs["charttime"] = self.labs["charttime"] / np.timedelta64(1, 'h')
+        #Only for experiments take between 36 hours before the xray and 36 hours after the xray
+        self.labs = self.labs[self.labs["charttime"] < 36]
+        self.labs = self.labs.iloc[:, 4:].mean(axis=0) 
+        #time_indices = datetime.strptime(self.labs["charttime"], '%Y-%m-%d %H:%M:%S')
+        #implement here lab result processing! 
+
+class MIMIC_Patient_Dataset(Dataset):
+    def __init__(self, split, truncate=None, prompt_type="basic", use_indication=False):
+        super().__init__()
+
+        # load csv file
+        self.split = pd.read_csv(
+            '/home/data/DIVA/mimic/mimic-cxr-jpg/2.0.0/mimic-cxr-2.0.0-split.csv')
+        
+        print("processing pats")
+        self.patient_folders = self.process_patient_folders(Path( '/home/data/DIVA/mimic/haim/patients/'))
+        print("finished processing pats")
+        self.patients = []
+
+        self.available_tests = ["Glucose", "Potassium"] #only as an example at this point
+        #self.pat_test = random.choice(self.available_tests)
+        pat_cnt = 0
+        for folder_path in self.patient_folders:
+            self.patients.append(Patient(pat_path=folder_path, tests=random.choice(self.permute_tests(self.available_tests))))
+            pat_cnt += 1
+            print(pat_cnt)
+            if pat_cnt == 20:
+                break
+
+        self.vis_root = VIS_ROOT
+
+        self.prompt_type = prompt_type
+
+        self.split_ids = set(self.split.loc[self.split['split'] == split]['dicom_id'])
+        self.train_ids = set(self.split.loc[self.split['split'] == 'train']['dicom_id'])
+        
+        self.patients = [ p for p in self.patients if p.dicom in self.split_ids ]
+        # get all dicom_ids where "split" is split
+        #self.annotation = self.reports.loc[self.reports['dicom_id'].isin(self.split_ids)]
+
+        # maybe use transforms from here: ResNet50_Weights.IMAGENET1K_V2.transforms
+        # read prompt from json
+        prompts = json.loads(Path(f"vicuna_prompts.json").read_text(encoding="UTF-8"))
+        self.text_processor = MyReportProcessor(
+            prompt=prompts[prompt_type], max_words=1000,
+            prompt_neg=prompts[prompt_type.replace("matching_examples", "neg_matching_examples")])
+        
+    def __getitem__(self, index):
+        pat = self.patients[index]
+        mortal = pat.mortal
+        disch = pat.disch # will be used for first experiments
+        dicom_id = pat.dicom
+        input_text = self.text_processor.prompt
+        # template for vicuna v1.3
+        conv = Conversation(
+            system="A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. "
+                   "The assistant gives professional, detailed, and polite answers to the user's questions.",
+            roles=["USER", "ASSISTANT"],
+            messages=[],
+            offset=0,
+            sep_style=SeparatorStyle.TWO,
+            sep=" ",
+            sep2="</s>",
+        )
+        conv.append_message(conv.roles[0], input_text)
+        self.construct_prompt(pat, conv)
+        if disch:
+            target_str = "You are expected to stay less than 48 hours"
+        else:
+            target_str = "You are expected to stay more than 48 hours"
+        #conv.append_message(conv.roles[1], None)
+        prompt = conv.get_prompt()
+
+        return {
+            "text_input": prompt,
+            "text_target": target_str,
+            "dicom": dicom_id,
+        }
+
+    def __len__(self):
+        return len(self.patients)
+        
+    def process_patient_folders(self, pat_path: Path):
+        #choose latest patient folder with the highest index
+        patients = [p for p in os.listdir(pat_path) if os.path.isdir(os.path.join(pat_path,p))]
+        max_indices = {}
+        for p in patients:
+            id,idx = p.split('_')
+            if id not in max_indices:
+                max_indices[id] = int(idx)
+            else:
+                if int(idx) > max_indices[id]:
+                    max_indices[id] = int(idx)
+        unique_patients = []
+        for haim in max_indices:
+            unique_patients.append(Path('/home/data/DIVA/mimic/haim/patients/' + str(haim) + '_' + str(max_indices[haim])))
+            if len(unique_patients) == 100:
+                return unique_patients
+        return unique_patients
+    
+    #return all possible test combinations
+    def permute_tests(self, available_tests: List[str]):
+        result = [[]]
+        n = len(available_tests)
+
+        for r in range(1, n+1):
+            permuts = itertools.permutations(available_tests, r)
+            result.extend(list(permuts))
+        return result
+    
+    def construct_prompt(self, pat: Patient, conv: Conversation):
+        if len(pat.tests) == 0:
+            conv.append_message(conv.roles[1], None)
+        else:
+            for test in range(len(pat.tests)):
+                if pat.tests[test] not in pat.labs:
+                    print("continue")
+                    continue
+                conv.append_message(conv.roles[1], f'What is your {pat.tests[test]} value?')
+                #conv.append_message(conv.roles[0], f'It is {pat.labs[test]}') #Needs csv preprocessing for patient lab results!
+                conv.append_message(conv.roles[0], f'It is {pat.labs[test]}.')
+            conv.append_message(conv.roles[1], None)
 
 class SubsetSampler(Sampler):
     def __init__(self, indices):
@@ -239,7 +377,6 @@ class SubsetSampler(Sampler):
 
     def __len__(self):
         return len(self.indices)
-
 
 def stratified_sample(df, simulated_epochs=1):
     # We want to reduce the number of examples with no finding to 1/14th of the dataset. We achieve this easily by first seperating the dataset into 2 groups: no finding and finding.
@@ -260,10 +397,10 @@ def stratified_sample(df, simulated_epochs=1):
 
 
 def create_report_data_vicuna_specific_stratified(prompt_type):
-    val_dataset = MIMIC_Text_Dataset(split="train", truncate=None, prompt_type=prompt_type)
-    stratified_indices = stratified_sample(val_dataset, simulated_epochs=2)
-    sampler = SubsetSampler(stratified_indices)
-    data_loader = DataLoader(val_dataset, batch_size=200, num_workers=200, sampler=sampler)
+    val_dataset = MIMIC_Patient_Dataset(split="train", truncate=None, prompt_type=prompt_type)
+    #stratified_indices = stratified_sample(val_dataset, simulated_epochs=2)
+    #sampler = SubsetSampler(stratified_indices)
+    data_loader = DataLoader(val_dataset, batch_size=10, num_workers=40)
 
     report_jsons = []
     for _, batch in tqdm(enumerate(data_loader)):
@@ -277,13 +414,13 @@ def create_report_data_vicuna_specific_stratified(prompt_type):
             reports_json = {
                 "instruction": text_input,
                 "input": "",
-                "output": text_target,
+                "output": str(text_target),
                 "dicom": dicom,
             }
             report_jsons.append(reports_json)
 
     # Save the JSON data to a file
-    with open("data/data_files/mimic_cxr_reports_stratified.json", "w") as f:
+    with open("data/data_files/mimic_patients_stratified.json", "w") as f:
         json.dump(report_jsons, f, ensure_ascii=False, indent=4)
 
 

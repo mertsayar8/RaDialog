@@ -1,0 +1,122 @@
+[
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Potassium value?</s>USER: It is 102.58333333333333. ASSISTANT: What is your Glucose value?</s>USER: It is 4.1. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "16cbb6b8-4c3ab972-a430b1bb-f3931502-b79b155e"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Potassium value?</s>USER: It is 228.88888888888889. ASSISTANT: What is your Glucose value?</s>USER: It is 3.925. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay less than 48 hours",
+        "dicom": "f15a9bae-496df3ac-b69189e3-998c25df-596969cb"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Glucose value?</s>USER: It is 102.0. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "f19af635-fe9bfda3-165facc9-7b341ba3-b7ef798b"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Potassium value?</s>USER: It is 161.0. ASSISTANT: What is your Glucose value?</s>USER: It is 9.3. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "2402737a-b2723921-142f6996-6d456e0a-b8bd35e0"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Glucose value?</s>USER: It is 130.0. ASSISTANT: What is your Potassium value?</s>USER: It is 4.1. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "98ac2ebf-d3b0f406-ed7e168a-e3ccbc04-ec7d9358"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Potassium value?</s>USER: It is 170.5. ASSISTANT: What is your Glucose value?</s>USER: It is 4.9. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "e6fc6d7b-f88744b6-6a47d5ea-6ec8196e-31103898"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "8d87aab3-8f09f547-5ee9a19c-c0d7ceaf-746681b2"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Glucose value?</s>USER: It is 287.0. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "5accfa6b-d3fea0da-55f9685f-77c09fdc-11d6e568"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Potassium value?</s>USER: It is 117.0. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "d1bd9cc6-e6c4f05a-171e6f64-0258e2f6-60726d5c"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Potassium value?</s>USER: It is 210.0. ASSISTANT: What is your Glucose value?</s>USER: It is 3.766666666666667. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "6c8c9700-90cb6a79-acde461b-7419bf9e-68f65bcd"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Potassium value?</s>USER: It is 128.0. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "2c627c90-14b6d0b1-c1a7f2f7-c843fdee-2396a488"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Potassium value?</s>USER: It is 120.66666666666667. ASSISTANT: What is your Glucose value?</s>USER: It is 4.25. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "7d6b1dda-edfbe500-8b8a72a1-705569db-140853e7"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Potassium value?</s>USER: It is 102.0. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "622b4bab-fdc8a3e9-a27c8e4a-42bf784e-60744019"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "7183b8c6-c391acdd-20cd0bd8-c5a1c76a-abd483ae"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Potassium value?</s>USER: It is 113.0. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay less than 48 hours",
+        "dicom": "b0783efc-8f85d1cb-60d8b102-1dcbaf3d-15e0bec1"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Glucose value?</s>USER: It is 188.3846153846154. ASSISTANT: What is your Potassium value?</s>USER: It is 4.383333333333334. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "206a2b1d-2f50406e-16a5ce7a-b50126e1-76c7a30a"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Potassium value?</s>USER: It is 146.75. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "44ee9add-e078478c-d5e75965-96518412-3b4bfefc"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay less than 48 hours",
+        "dicom": "4ed5ae5d-dd569cfa-18e0b478-00442ded-42af3d94"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "2aa2f608-6db47d18-6b18a13b-6afa0850-2fe5c9db"
+    },
+    {
+        "instruction": "A chat between a curious user and an artificial intelligence assistant acting as an experienced radiologist. The assistant gives professional, detailed, and polite answers to the user's questions. USER: Image information: <IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG><IMG>. Predicted Findings: {findings}. You are to act as a radiologist and write the finding section of a chest x-ray radiology report for this X-ray image and the given predicted findings. Write in the style of a radiologist, write one fluent text without enumeration, be concise and don't provide explanations or reasons. ASSISTANT: What is your Potassium value?</s>USER: It is 91.0. ASSISTANT:",
+        "input": "",
+        "output": "You are expected to stay more than 48 hours",
+        "dicom": "a84c6077-1904ab48-04e9eefa-a109d7ba-1e0d76c8"
+    }
+]
